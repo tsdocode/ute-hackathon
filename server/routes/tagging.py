@@ -18,12 +18,13 @@ async def check_valid_image(request: TaggingRequest):
     
     print(data)
 
+
     base64_image = data['base64_image_arr']
     result = []
 
     for image in base64_image:
         result.extend(gcp_tagging.predict(image))
-        
-    result = gcp_tagging.predict(base64_image)
+
+    # result = gcp_tagging.predict(base64_image)
 
     return Response.ResponseModel(data=result, message="Success")
