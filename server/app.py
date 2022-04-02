@@ -3,7 +3,7 @@ from fastapi import FastAPI
 # from server.routes.GPT import router as GPTRoutes
 from server.routes.classify import router as ClassifyRouter
 from server.routes.tagging import router as TaggingRouter
-
+from server.routes.simmilarly import router as SimmilarlyRouter
 
 
 from starlette.middleware.cors import CORSMiddleware
@@ -17,6 +17,7 @@ app = FastAPI()
 # app.include_router(GPTRoutes, tags=["GPT"], prefix="/gpt")
 app.include_router(ClassifyRouter, tags=["Classify"], prefix="/classify")
 app.include_router(TaggingRouter, tags=["Tagging"], prefix="/tagging")
+app.include_router(SimmilarlyRouter, tags=["Simmilarly"], prefix="/simmilarly")
 
 
 @app.get("/", tags=["Root"])
